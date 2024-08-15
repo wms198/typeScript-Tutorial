@@ -16,6 +16,7 @@ const tofrom = document.querySelector('#tofrom')! as HTMLInputElement;
 const details = document.querySelector('#details')! as HTMLInputElement;
 const amount = document.querySelector('#amount')! as HTMLInputElement;
 
+// Its a call back function. when there is a submit => using e.preventDefault
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault;
 
