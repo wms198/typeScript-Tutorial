@@ -1,3 +1,20 @@
+ // Tutorial 6 Dynamic(any) Types
+ let age: any = 25;
+ age = true;
+ console.log(age);
+
+ let mixed: any[] = [];
+ mixed.push(5);
+ mixed.push("mario");
+ mixed.push(true);
+
+ let ninja: {name: any, age: any};
+ ninja = {name: 25, age: "yoshi"};
+ console.log(ninja);
+ 
+
+
+/*
 // Tutorial 5
 // Explicit types
 let character: string;
@@ -33,7 +50,7 @@ ninhaTwo = {name: "mario", age: 20, beltColor: "black"};
 
 
 
-/*
+
 let character = 'mario';
 let age = 30;
 let isBlackBelt = false;

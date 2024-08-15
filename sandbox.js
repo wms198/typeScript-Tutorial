@@ -1,25 +1,51 @@
+// Tutorial 6 Dynamic(any) Types
+var age = 25;
+age = true;
+console.log(age);
+var mixed = [];
+mixed.push(5);
+mixed.push("mario");
+mixed.push(true);
+var ninja;
+ninja = { name: 25, age: "yoshi" };
+console.log(ninja);
+/*
 // Tutorial 5
 // Explicit types
-var character;
-var age;
-var isLoggenin;
+let character: string;
+let age: number;
+let isLoggenin: boolean;
+ 
 //arrays
-var ninjas = [];
+let ninjas: string[] = [];
 ninjas.push("yoshi");
+
 //union types
-var mixed = [];
+let mixed: (string|number|boolean)[] = [];
 mixed.push(20);
 mixed.push("hello");
 console.log(mixed);
-var uid;
+
+let uid: string|number;
 uid = "123";
 uid = 123;
+
 //object
-var ninhaOne;
-ninhaOne = { name: "yoshi", age: 30 };
-var ninhaTwo;
-ninhaTwo = { name: "mario", age: 20, beltColor: "black" };
-/*
+let ninhaOne: object;
+ninhaOne = {name: "yoshi", age: 30};
+
+let ninhaTwo: {
+    name: string;
+    age: number;
+    beltColor: string;
+};
+
+ninhaTwo = {name: "mario", age: 20, beltColor: "black"};
+
+
+
+
+
 let character = 'mario';
 let age = 30;
 let isBlackBelt = false;
