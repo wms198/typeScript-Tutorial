@@ -1,4 +1,20 @@
- // Tutorial Function
+// Tutorial 9 Type Aliases: define once and can use it mutiple times
+type StringOrNum = string | number;
+type objWithName = {name: string, uid: StringOrNum};
+const logDetails = (uid: StringOrNum, item: string) => {
+    console.log(`${item} has a uid og ${uid}`);
+}
+
+const greet = (user: objWithName) => {
+    console.log(`${user.name} says hello`);
+}
+
+const greetAgain = (user: objWithName) => {
+    console.log(`${user.name} says hello`);
+}
+
+/*
+// Tutorial Function
 let greet: Function;
 
 greet = () => {
@@ -16,7 +32,6 @@ const minus = (a: number, b: number): number => {
 }
 let result = minus(10, 7);
 
- /*
  // Tutorial 7 Workflow & tsconfig
  console.log("test");
 
