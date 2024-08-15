@@ -37,12 +37,14 @@ const list = new ListTemplate(ul);
 // Its a call back function. when there is a submit => using e.preventDefault
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value === 'invoice') {
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     }
     else {
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     }
     // console.log(
     //     type.value,
@@ -52,23 +54,51 @@ form.addEventListener('submit', (e) => {
     // );
     list.render(doc, type.value, 'end');
 });
+// tuples
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false, 'yoshi'];
+let tup = ['ryu', 25, true];
+// let student: [string, number];
+// student = ['chun-li', 2332];
 // Generics
 // const addUID = <T extends object>(obj: T) => {
 const addUID = (obj) => {
     let uid = Math.floor(Math.random() * 100);
     return Object.assign(Object.assign({}, obj), { uid });
 };
-let docOne = addUID({ name: "yoshi", age: 40 });
+let genreic_test1 = addUID({ name: "yoshi", age: 40 });
+//let genreic_test2 = addUID({age: 40});
 //let dovTwo = addUID('hello');
-console.log(docOne.age);
-const docThree = {
+// with interfaces
+// interface Resource<T> {
+//     uid: number;
+//     resourceName: string;
+//     data: T;
+// }
+// Enums
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+const docOne = {
     uid: 1,
-    resourceName: 'person',
-    data: { name: 'shaun' }
+    resourceType: ResourceType.BOOK,
+    data: { name: 'name of the wind' }
 };
-const docFour = {
-    uid: 2,
-    resourceName: 'shoppingList',
-    data: ['milk', 'milk']
+const docTwo = {
+    uid: 1,
+    resourceType: ResourceType.PERSON,
+    data: { name: 'yoshi' }
 };
-console.log(docThree, docFour);
+// const docFour: Resource<string[]> = {
+//     uid:2,
+//     resourceType: ResourceType.PERSON,
+//     data: ['milk', 'milk']
+// }
+console.log(docOne, docTwo);

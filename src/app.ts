@@ -54,11 +54,14 @@ const list = new ListTemplate(ul);
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
 
+    let values: [string, string, number];
+    values = [tofrom.value, details.value, amount.valueAsNumber];
+
     let doc: HasFormatter;
     if(type.value === 'invoice'){
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber)
+        doc = new Invoice(...values)
     }else{
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
+        doc = new Payment(...values)
     }
 
     // console.log(
@@ -70,6 +73,18 @@ form.addEventListener('submit', (e: Event) => {
 list.render(doc, type.value, 'end');
 });
 
+// tuples
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1] = 'yoshi';
+arr = [30, false, 'yoshi'];
+
+let tup: [string, number, boolean] = ['ryu', 25, true];
+
+// let student: [string, number];
+// student = ['chun-li', 2332];
+
+
 // Generics
 
 // const addUID = <T extends object>(obj: T) => {
@@ -78,11 +93,10 @@ const addUID = <T extends {name: string}>(obj: T) => {
     return {...obj, uid};
 } 
 
-let docOne = addUID({name: "yoshi", age: 40});
+let genreic_test1 = addUID({name: "yoshi", age: 40});
+//let genreic_test2 = addUID({age: 40});
 
 //let dovTwo = addUID('hello');
-console.log(docOne.age);
-
 // with interfaces
 // interface Resource<T> {
 //     uid: number;
@@ -90,23 +104,32 @@ console.log(docOne.age);
 //     data: T;
 // }
 
+
+// Enums
+enum ResourceType { BOOK, AUTHOR, FILM, DIRECTOR, PERSON }
+
 interface Resource<T> {
     uid: number;
-    resourceName: string;
+    resourceType: ResourceType;
     data: T;
 }
 
-const docThree: Resource<object> = {
+const docOne: Resource<object> = {
     uid: 1,
-    resourceName: 'person',
-    data: { name: 'shaun'}
+    resourceType: ResourceType.BOOK,
+    data: { name: 'name of the wind'}
 }
 
-const docFour: Resource<string[]> = {
-    uid:2,
-    resourceName: 'shoppingList',
-    data: ['milk', 'milk']
+const docTwo: Resource<object> = {
+    uid: 1,
+    resourceType: ResourceType.PERSON,
+    data: { name: 'yoshi'}
 }
+// const docFour: Resource<string[]> = {
+//     uid:2,
+//     resourceType: ResourceType.PERSON,
+//     data: ['milk', 'milk']
+// }
 
-console.log(docThree, docFour);
+console.log(docOne, docTwo);
 
