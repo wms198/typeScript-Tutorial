@@ -1,26 +1,33 @@
 "use strict";
+//Tutorial 11 Dom & Type Casting
+/*
 // Tutorial 10 Function Types(Signatures)
 //let greed: Function;
+
 //example 1
-let greet;
-greet = (name, greeting) => {
+let greet: (a: string, b: string) => void;
+greet = (name: string, greeting: string): void => {
     console.log(`${name} says ${greeting}`);
-};
+}
 //example 2
-let calc;
-calc = (numOne, numTwo, action) => {
-    if (action === "add") {
+let calc: (a: number, b: number, c: string) => number;
+calc = (numOne: number, numTwo: number, action: string): number => {
+    if (action === "add"){
         return numOne + numTwo;
-    }
-    else {
+    }else {
         return numOne - numTwo;
     }
-};
+}
 //example 3
-let logDetails;
-logDetails = (ninja) => {
+let logDetails: (obj: {name: string, age: number}) => void;
+
+type person = {name: string, age: number};
+
+logDetails = (ninja: person) => {
     console.log(`${ninja.name} is ${ninja.age} years old.`);
-};
+}
+
+
 /*
 // Tutorial 9 Type Aliases: define once and can use it mutiple times
 type StringOrNum = string | number;

@@ -1,3 +1,7 @@
+//Tutorial 11 Dom & Type Casting
+
+
+/*
 // Tutorial 10 Function Types(Signatures)
 //let greed: Function;
 
