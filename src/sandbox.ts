@@ -1,7 +1,25 @@
+ // Tutorial Function
+let greet: Function;
+
+greet = () => {
+    console.log("hello");
+}
+
+const add = (a: number, b: number, c: number | string = 10): void => {
+    console.log(a + b);
+    console.log(c);
+}
+add(5, 10);
+
+const minus = (a: number, b: number): number => {
+    return a + b;
+}
+let result = minus(10, 7);
+
+ /*
  // Tutorial 7 Workflow & tsconfig
  console.log("test");
 
- /*
  // Tutorial 6 Dynamic(any) Types
  let age: any = 25;
  age = true;

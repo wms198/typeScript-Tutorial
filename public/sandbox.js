@@ -1,7 +1,22 @@
 "use strict";
+// Tutorial Function
+let greet;
+greet = () => {
+    console.log("hello");
+};
+const add = (a, b, c = 10) => {
+    console.log(a + b);
+    console.log(c);
+};
+add(5, 10);
+const minus = (a, b) => {
+    return a + b;
+};
+let result = minus(10, 7);
+/*
 // Tutorial 7 Workflow & tsconfig
 console.log("test");
-/*
+
 // Tutorial 6 Dynamic(any) Types
 let age: any = 25;
 age = true;
