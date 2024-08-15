@@ -1,3 +1,7 @@
+ // Tutorial 7 Workflow & tsconfig
+ console.log("test");
+
+ /*
  // Tutorial 6 Dynamic(any) Types
  let age: any = 25;
  age = true;
@@ -12,9 +16,6 @@
  ninja = {name: 25, age: "yoshi"};
  console.log(ninja);
  
-
-
-/*
 // Tutorial 5
 // Explicit types
 let character: string;
